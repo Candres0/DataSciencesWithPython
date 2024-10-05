@@ -25,3 +25,44 @@ print(cars)
 #Change index_col
 cars = pd.read_csv('/Users/andrescampino/Reposiroties/DataSciencesWithPython/Files/Input/cars.csv', index_col = 0)
 print(cars)
+
+##########Square brackets##########
+
+# Print out country column as Pandas Series
+print(cars['country'])
+
+# Print out country column as Pandas DataFrame
+print(cars[['country']])
+
+# Print out DataFrame with country and drives_right columns
+print(cars[['country','drives_right']])
+
+# Print out first 3 observations
+print(cars[0:3])
+
+# Print out fourth, fifth and sixth observation
+print(cars[3:6])
+
+########loc and iloc#########
+
+# Print out observation for Japan
+print(cars.loc['JPN'])
+print(cars.iloc[2])
+
+# Print out observations for Australia and Egypt
+print(cars.loc[['AUS', 'EG']])
+print(cars.iloc[[1,-1]])
+
+# Print out drives_right value of Morocco
+print(cars.loc['MOR','drives_right'])
+
+# Print sub-DataFrame
+print(cars.loc[['RU','MOR'],['country','drives_right']])
+
+# Print out drives_right value of Morocco
+print(cars.loc['MOR','drives_right'])
+print(cars.iloc[-2,2])
+
+# Print sub-DataFrame
+print(cars.loc[['RU','MOR'],['country','drives_right']])
+print(cars.iloc[[4,-2],[1,2]])
