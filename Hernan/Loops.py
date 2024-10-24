@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 # areas list
 areas = [11.25, 18.0, 20.0, 10.75, 9.50]
@@ -28,7 +29,7 @@ for key, value in europe.items():
 np_height = [74, 74, 72, 75, 75, 73]
 np_baseball = np.array([[74,180],[74,215],[72,210],[75,205],[75,190],[73,195]])
 
-# For loop over np_height. Loop over a 1D array
+# For loop over np_height.
 for x in np_height:
     print(str(x) + " inches")
 
@@ -36,3 +37,23 @@ for x in np_height:
 print(np_baseball)
 for x in np.nditer(np_baseball):
     print(str(x))
+
+cars = pd.read_csv(r'C:\Users\User\Documents\REPOSITORY\DataSciencesWithPython\Files\Input\cars.csv', index_col= 0)
+for label, row in cars.iterrows():
+    print(label)
+    print(row) # row will return a serie
+
+# Adapt for loop to select cars_per_cap from the row pandas serie.
+for lab, row in cars.iterrows() :
+    print(lab + ": " + str(row['cars_per_cap']))
+
+# Add column named COUNTRY to the cars dataframe that contains a upper version of the column country.
+
+# Code for loop that adds COUNTRY column iterating over a series
+for lab, row in cars.iterrows():
+    cars.loc[lab, "COUNTRY"] = str.upper(row['country'])
+
+# Code for loop that adds COUNTRY column without iterating over a series
+for lab, row in cars.iterrows():
+    cars['COUNTRY'] = cars['country'].apply(str.upper)
+print(cars)
