@@ -1,3 +1,5 @@
+import numpy as np
+
 # areas list
 areas = [11.25, 18.0, 20.0, 10.75, 9.50]
 
@@ -14,3 +16,23 @@ house = [["hallway", 11.25],
 # Build a for loop from scratch
 for room in house:
     print("the " + room[0] + " is " + str(room[1]) + " sqm")
+
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
+          'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
+          
+# Iterate over europe
+for key, value in europe.items():
+    print("the capital of " + key + " is " + value)
+
+np_height = [74, 74, 72, 75, 75, 73]
+np_baseball = np.array([[74,180],[74,215],[72,210],[75,205],[75,190],[73,195]])
+
+# For loop over np_height. Loop over a 1D array
+for x in np_height:
+    print(str(x) + " inches")
+
+# For loop over np_baseball. Loop over a 2D array
+print(np_baseball)
+for x in np.nditer(np_baseball):
+    print(str(x))
