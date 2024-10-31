@@ -35,3 +35,48 @@ else :
 # Print out dice and step
 print(dice)
 print(step)
+
+# Print out dice and step
+print(dice)
+print(step)
+
+
+print('#####################################################')
+print('#####################################################')
+print('#####################################################')
+print('#####################################################')
+print('#####################################################')
+
+
+# NumPy is imported, seed is set to 123
+
+# Initialize random_walk
+random_walk = [0]
+
+# Complete the ___
+for x in range(10) :
+    print('###################')
+    print('x=' + str(x))
+    # Set step: last element in random_walk    
+    print('random_walk = ' + str(random_walk))
+    step = random_walk[x]    
+    print('Step = ' + str(step))
+
+    # Roll the dice
+    dice = np.random.randint(1,7)
+    print('dice = ' + str(dice))
+
+    # Determine next step
+    if dice <= 2:
+        step = step - 1
+    elif dice <= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+        print('next step = ' + str(step))
+    # append next_step to random_walk
+    random_walk.append(step)
+    print('Step = ' + str(step))
+
+# Print random_walk
+print(random_walk)
