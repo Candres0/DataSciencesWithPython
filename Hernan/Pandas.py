@@ -68,6 +68,7 @@ print(cars[3:6])
 ##############LOC and ILOC################
 ##########################################
 # Print out observation for Japan as a serie
+print('cars.loc[JPN]: ')
 print(cars.loc['JPN'])
 print(cars.iloc[2])
 

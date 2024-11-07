@@ -1,5 +1,5 @@
-# Import numpy as np
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Set the seed
 np.random.seed(123)
@@ -51,32 +51,51 @@ print('#####################################################')
 # NumPy is imported, seed is set to 123
 
 # Initialize random_walk
-random_walk = [0]
+all_walks = []
 
-# Complete the ___
-for x in range(10) :
-    print('###################')
-    print('x=' + str(x))
-    # Set step: last element in random_walk    
-    print('random_walk = ' + str(random_walk))
-    step = random_walk[x]    
-    print('Step = ' + str(step))
-
-    # Roll the dice
-    dice = np.random.randint(1,7)
-    print('dice = ' + str(dice))
-
-    # Determine next step
-    if dice <= 2:
-        step = step - 1
-    elif dice <= 5:
-        step = step + 1
-    else:
-        step = step + np.random.randint(1,7)
-        print('next step = ' + str(step))
-    # append next_step to random_walk
-    random_walk.append(step)
-    print('Step = ' + str(step))
+# Simulate random walk five times
+for i in range(5) :
+    random_walk = [0]
+    for x in range(100) :
+        # Set step: last element in random_walk
+        step = random_walk[x]
+        # Roll the dice
+        dice = np.random.randint(1,7)
+        # Determine next step. Use max to make sure step can't go below 0
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+        # append next_step to random_walk
+        random_walk.append(step)
+    # Append random_walk to all_walks
+    all_walks.append(random_walk)
 
 # Print random_walk
 print(random_walk)
+# Print all_walks
+print(all_walks)
+
+plt.plot(random_walk)
+plt.show()
+# Clear the figure
+plt.clf()
+
+plt.plot(all_walks)
+plt.show()
+plt.clf()
+# Convert all_walks to NumPy array: np_aw
+np_aw = np.array(all_walks) 
+# Plot np_aw and show
+plt.plot(np_aw)
+plt.show()
+plt.clf()
+
+# Transpose np_aw: np_aw_t
+np_aw_t = np.transpose(np_aw)
+
+# Plot np_aw_t and show
+plt.plot(np_aw_t)
+plt.show()
