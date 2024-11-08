@@ -54,7 +54,7 @@ print('#####################################################')
 all_walks = []
 
 # Simulate random walk five times
-for i in range(5) :
+for i in range(20) :
     random_walk = [0]
     for x in range(100) :
         # Set step: last element in random_walk
@@ -68,6 +68,9 @@ for i in range(5) :
             step = step + 1
         else:
             step = step + np.random.randint(1,7)
+        # Implement clumsiness
+        if np.random.rand() <= 0.005:
+            step = 0
         # append next_step to random_walk
         random_walk.append(step)
     # Append random_walk to all_walks
@@ -99,3 +102,9 @@ np_aw_t = np.transpose(np_aw)
 # Plot np_aw_t and show
 plt.plot(np_aw_t)
 plt.show()
+
+ends = np_aw_t[-1,:]
+
+#what's the estimated chance that you'll reach at least 60 steps high 
+# if you play this Empire State Building game? 
+print(str(np.sum(ends >= 60) / 20 * 100) + '%')
