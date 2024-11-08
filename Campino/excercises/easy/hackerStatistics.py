@@ -49,7 +49,7 @@ print('#####################################################')
 all_walks = []
 
 # Complete the ___
-for i in range(5):
+for i in range(20):
     random_walk = [0]
     for x in range(100):
         print('###################')
@@ -71,6 +71,9 @@ for i in range(5):
         else:
             step = step + np.random.randint(1,7)
             print('next step = ' + str(step))
+        # Implement clumsiness
+        if np.random.rand() <= 0.005:
+            step = 0
         # append next_step to random_walk
         random_walk.append(step)
         print('Step = ' + str(step))
@@ -97,3 +100,7 @@ np_aw_t = np.transpose(np_aw)
 # Plot np_aw_t and show
 plt.plot(np_aw_t)
 plt.show()
+
+ends = np_aw_t[-1, :]
+
+print(str(np.sum(ends >= 60) / 20 * 100) + "%")
